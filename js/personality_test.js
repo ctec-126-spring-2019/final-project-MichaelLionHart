@@ -55,44 +55,42 @@ $('button').on('click', function(){
         type.push('J');
     }
 
-    // var descriptions = [
-    //     [`<p><strong>Introverted: </strong>  </p>`]
-    //     [`<p><strong>Extraverted: </strong>  </p>`]
-    //     [`<p><strong>Sensing: </strong>  </p>`]
-    //     [`<p><strong>Intuitive: </strong>  </p>`]
-    //     [`<p><strong>Thinking: </strong>  </p>`]
-    //     [`<p><strong>Feeling: </strong>  </p>`]
-    //     [`<p><strong>Judging: </strong>  </p>`]
-    //     [`<p><strong>Perceiving: </strong>  </p>`]
-    // ];
+    var descriptions = [
+        [`<p><strong>Introverted: </strong>You are energized by thoughts and ideas  </p>`],
+        [`<p><strong>Extraverted: </strong>You are energized by action and socializing </p>`],
+        [`<p><strong>Sensing: </strong>You are down-to-earth, realistic and practical, and tend to live more in the present  </p>`],
+        [`<p><strong>Intuitive: </strong>You see the big picture and the possibilities, and you are more future-thinking  </p>`],
+        [`<p><strong>Thinking: </strong>  You make decisions based on logic and objective criteria</p>`],
+        [`<p><strong>Feeling: </strong>  You make decisions based more on your personal values</p>`],
+        [`<p><strong>Judging: </strong>  You like things to be settled and decided, and value living according to a schedule</p>`],
+        [`<p><strong>Perceiving: </strong>  You value freedom and spontaneity, and dislike overly rigid rules and guidelines</p>`]
+    ];
 
     var container = $('#result');
-
-    container.html('<h2>Your Personality Type Is:  </h2>' + '<h2>' + type.join(' ') + '</h2>');
     
-    // var output = '';
+    var output = '';
 
-    // for (let i = 0; i < type.length; i++) {
-    //     if (type[i] === 'I') {
-    //         output = output + descriptions[0];
-    //     } else if (type[i] === 'E') {
-    //         output = output + descriptions[1];
-    //     } else if (type[i] === 'S') {
-    //         output = output + descriptions[2];
-    //     } else if (type[i] === 'N') {
-    //         output = output + descriptions[3];
-    //     } else if (type[i] === 'T') {
-    //         output = output + descriptions[4];
-    //     } else if (type[i] === 'F') {
-    //         output = output + descriptions[5];
-    //     } else if (type[i] === 'J') {
-    //         output = output + descriptions[6];
-    //     } else {
-    //         output = output + descriptions[7];
-    //     }     
+    for (let i = 0; i < type.length; i++) {
+        if (type[i] === 'I') {
+            output = output + descriptions[0];
+        } else if (type[i] === 'E') {
+            output = output + descriptions[1];
+        } else if (type[i] === 'S') {
+            output = output + descriptions[2];
+        } else if (type[i] === 'N') {
+            output = output + descriptions[3];
+        } else if (type[i] === 'T') {
+            output = output + descriptions[4];
+        } else if (type[i] === 'F') {
+            output = output + descriptions[5];
+        } else if (type[i] === 'J') {
+            output = output + descriptions[6];
+        } else {
+            output = output + descriptions[7];
+        }     
         
-    // container.html(output);
-    // }
+    container.html('<h2>Your Personality Type Is:  ' + type.join(' ') + '</h2>' + output);
+    }
     console.log('perceiving: ' + perceiverCount);
     console.log('Judging: ' + judgerCount);
     console.log('Sensing: ' + sensorCount);
