@@ -1,6 +1,6 @@
-
-
+// binding submit button to click event, to fire entire script
 $('button').on('click', function(){
+    // creating personality trait counters and setting them to zero
     var perceiverCount = 0;
     var judgerCount = 0;
     var sensorCount = 0;
@@ -10,27 +10,33 @@ $('button').on('click', function(){
     var introvertCount = 0;
     var extravertCount = 0;
 
+    // finding all radio buttons that have been selected, and adding 
+    // to the trait counters depending on the values found
     $(':radio:checked').each(function() {
         if ($(this).val() === 'p') {
-            perceiverCount = perceiverCount + 1;
+            perceiverCount++;
         } else if ($(this).val() === 'j') {
-            judgerCount = judgerCount + 1;
+            judgerCount++;
         } else if ($(this).val() === 's') {
-            sensorCount = sensorCount + 1;
+            sensorCount++;
         } else if ($(this).val() === 'n') {
-            intuitiveCount = intuitiveCount + 1;
+            intuitiveCount++;
         } else if ($(this).val() === 't') {
-            thinkerCount = thinkerCount + 1;
+            thinkerCount++;
         } else if ($(this).val() === 'f') {
-            feelerCount = feelerCount + 1;
+            feelerCount++;
         } else if ($(this).val() === 'i') {
-            introvertCount = introvertCount + 1;
+            introvertCount++;
         } else {
-            extravertCount = extravertCount + 1;
+            extravertCount++;
         } 
-    });
+    }); // end of trait counter processing
 
+    // creating a container to hold the personality type, as it's appended
     var type = [];
+
+    // determining which traits were selected more, and appending
+    // the correct letter value depending on the result
     if (introvertCount >= 3) {
         type.push('I');
     } else {
@@ -53,8 +59,9 @@ $('button').on('click', function(){
         type.push('P');
     } else {
         type.push('J');
-    }
+    } // end of type array building
 
+    // container for short trait descriptions
     var descriptions = [
         [`<p><strong>Introverted: </strong>You are energized by thoughts and ideas  </p>`],
         [`<p><strong>Extraverted: </strong>You are energized by action and socializing </p>`],
@@ -66,10 +73,14 @@ $('button').on('click', function(){
         [`<p><strong>Perceiving: </strong>  You value freedom and spontaneity, and dislike overly rigid rules and guidelines</p>`]
     ];
 
+    // getting a handle on the #result div, to hold the personality type and trait descriptions
     var container = $('#result');
     
+    // creating an empty string to hold the content, until it's ready to be displayed on the page
     var output = '';
 
+    // for loop to iterate through the type array, and building the content using an if/else if/else statement 
+    // depending on which trait letters are found in the array, then adding the correct content to the output container
     for (let i = 0; i < type.length; i++) {
         if (type[i] === 'I') {
             output = output + descriptions[0];
@@ -87,10 +98,13 @@ $('button').on('click', function(){
             output = output + descriptions[6];
         } else {
             output = output + descriptions[7];
-        }     
-        
+        }
+    
+    // Adding the final content that was built to the container (#result) div
     container.html('<h2>Your Personality Type Is:  ' + type.join(' ') + '</h2>' + output);
-    }
+    } // end of for loop and if/else if/else statement
+
+    // used for testing
     console.log('perceiving: ' + perceiverCount);
     console.log('Judging: ' + judgerCount);
     console.log('Sensing: ' + sensorCount);
@@ -99,7 +113,8 @@ $('button').on('click', function(){
     console.log('Feeling: ' + feelerCount);
     console.log('Introversion: ' + introvertCount);
     console.log('Extraversion: ' + extravertCount);
-});
+    
+}); // end of script
 
 
 

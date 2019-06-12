@@ -31,6 +31,10 @@ h2 {
     padding-top: .7em;
 }
 
+h2:first-child {
+    border: none;
+}
+
 #submit {
     margin-left: 430px;
 }

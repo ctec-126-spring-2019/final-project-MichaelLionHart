@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Mike's Tip Calculator</title>
+</head>
+<body>
+  
+    <h1>Mike's Tip Calculator</h1>
+
+    <div id="container">
+
+        <div id="tipcalculator"></div>
+
+            <form>
+
+                <p>How Many People Are Splitting the Bill?</p>
+                <input type="text" id="peoplenumber" placeholder="Number of People">
+
+                <p>What is the Bill Cost?</p>
+                <p>$<input type="text" id="billcost" placeholder="Enter Bill Cost"></p>
+                
+                <p>Select a Tip Percentage:</p>
+                <select id="percentagetip">
+                    <option disabled selected value="0">-- Choose an Option --</option>
+                    <option value="0.3">30&#37; &#45; Excellent</option>
+                    <option value="0.2">20&#37; &#45; Good</option>
+                    <option value="0.15">15&#37; &#45; Okay</option>
+                    <option value="0.1">10&#37; &#45; Bad</option>
+                    <option value="0.05">5&#37; &#45; Horrific</option>
+                </select>
+
+                <button type="button" id="calculate">Calculate</button>
+
+                <div id="output"></div>
+
+            </form>
+
+        </div> <!-- end of tip calculator -->
+
+    </div> <!-- end of container div -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+
+    <script src="js/tip_calculator.js"></script>
+</body>
+</html>
